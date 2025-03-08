@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="VideoPhy2 Content">
+  <meta name="keywords" content="Video Generation, Physics, Physical Commonsense, videophysics, videophy">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIDEOPHY: Evaluating Physical Commonsense In Video Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https/wwwgoogletagmanagercom/gtag/2054635620.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https/fontsgoogleapiscom/1750991739.css"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https/cdnjsdelivrnet/gh/jpswalsh/742267238.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+  <link rel="icon" href="images/physics.png">
+
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+  <script src="https/ajaxgoogleapiscom/ajax/libs/jquery/351/jquery.min_224203279.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/explorer-index.js"></script>
+  <script src="static/js/question_card.js"></script>
+
+  <script src="static/js/leaderboard_testmini.js"></script>  
+  <script src="data/results/output_folders.js" defer></script>
+  <script src="data/results/model_scores.js" defer></script>
+
+  <script src="visualizer/data/data_public.js" defer></script>
+
+  <script src="static/js/index.js"></script>
+  
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://keunhong.com">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+        <!-- @PAN TODO: consider adding links? -->
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://video-con.github.io/">
+              <b>VideoCon</b> <p style="font-size:18px; display: inline; margin-left: 5px;"></p>
+            </a>
+            <a class="navbar-item" href="https://mathvista.github.io/">
+              <b>MathVista</b> <p style="font-size:18px; display: inline; margin-left: 5px;"></p>
+            </a>
+            <a class="navbar-item" href="https://con-textual.github.io/">
+              <b>Con-Textual</b> <p style="font-size:18px; display: inline; margin-left: 5px;"></p>
+            </a>
+            <a class="navbar-item" href="https://dove-alignment.github.io/">
+              DOVE
+            </a>
+            <a class="navbar-item" href="https://aclanthology.org/2022.findings-emnlp.426.pdf">
+              SENT
+            </a>
+            <a class="navbar-item" href="https://openreview.net/forum?id=KGV-GBh8fb">
+              Task Generalization
+            </a>
+            <a class="navbar-item" href="https://arxiv.org/pdf/2211.08099">
+              Universal Discriminator
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+  
+
+
+<!-- title and author -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <img src="images/physics_verylong.png" alt="Descriptive Text" style="max-width: 90%; height: auto;">
+
+          <h1 class="title is-1 publication-title is-bold">
+          <span class="mathvista" style="vertical-align: middle">VideoPhy 2</span>
+          </h1>
+          <h2 class="subtitle is-3 publication-subtitle">
+            Challenging Action-Centric Physical Commonsense Evaluation of Video Generation
+            <!-- <br> -->
+            <!-- with GPT-4V, Bard, and Other Large Multimodal Models -->
+          </h2>
+          <!-- <h1 class="title is-1 publication-title">VIDEOPHY: Evaluating Physical Commonsense In Video Generation</h1> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://sites.google.com/view/hbansal">Hritik Bansal<span style="color: red;">*</span></a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://clarkipeng.github.io/">Clark Peng<span style="color: red;">*</span></a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://yonatanbitton.github.io/">Yonatan Bitton<span style="color: red;">*</span></a><sup>2</sup>,</span>
+              </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=yggUoWYAAAAJ&hl=en">Roman Goldenberg</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://aditya-grover.github.io/">Aditya Grover</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://web.cs.ucla.edu/~kwchang/">Kai-Wei Chang</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <!-- <div class="is-size-5 publication-authors">
+            (<span style="color: red;">*</span>, <span style="color: blue;">^</span>, <span style="color: purple;">~</span>, Equal Contribution)
+          </div> -->
+          <div class="is-size-5 publication-authors">
+            (<span style="color: red;">*</span> Equal Contribution)
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of California, Los Angeles</span>
+            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>2</sup>Google Research</span>
+            <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="http://arxiv.org/abs/2406.03520"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Model Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/videophysics/videocon_physics/tree/main"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
+                      <!-- 🔗 -->
+                  </span>
+                  <span>Model</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Hritikbansal/videophy"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/videophysics/videophy_test_public"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Abstract. -->
+<section class="section" style="margin-top:-80px">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Large-scale video generative models, capable of creating realistic videos of diverse visual concepts, are strong candidates for general-purpose physical world simulators. 
+            However, their adherence to physical commonsense across real-world actions remains unclear (e.g., playing tennis, backflip). 
+            Existing benchmarks suffer from limitations such as limited size, lack of human evaluation, sim-to-real gaps, and absence of fine-grained physical rule analysis. 
+            To address this, we introduce VideoPhy2, an action-centric dataset for evaluating physical commonsense in generated videos. 
+            We curate 200 diverse actions and detailed prompts for video synthesis from modern generative models. 
+            We perform human evaluation that assesses semantic adherence, physical commonsense, and grounding of physical rules in the generated videos. 
+            Our findings reveal major shortcomings, with even the best model achieving only 22% joint performance (i.e., high semantic and physical commonsense adherence) on the hard subset of VideoPhy2. 
+            We find that the models particularly struggle with conservation laws like mass and momentum. Finally, we also train VideoPhy2-eval, an automatic evaluator for fast, reliable assessment on our dataset. 
+            Overall, VideoPhy2 serves as a rigorous benchmark, exposing critical gaps in video generative models and guiding future research in physically-grounded video generation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- top 2 images -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="images-container" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 270px;">
+        <img src="images/main_graph.png" alt="Image 1" style="height: 100%; object-fit: contain;" >
+        <img src="images/VideoPhysics2.png" alt="Image 2" style="height: 100%; object-fit: contain;">
+      </div>
+      <h2 class="has-text-centered">
+        <span class="dnerf">VIDEOPHY 2 PIPELINE</span>, <b>Top:</b> We generate a text prompt from the seed action using an LLM, create a video with a text-to-video model, and caption it with a VLM to extract candidate physical rules. 
+        <b>Bottom:</b> Human annotators rate the video's physical likelihood, verify rule violations, suggest missing rules, and assess semantic adherence to the input prompt.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- video gallery -->
+<section class="section">
+  <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="/Users/clarkpeng/Documents/Python/VideoPhy2.github.io/videos/wan_bad/A_small_rock_tumbles_down_a_steep,_rocky_hillside,_displacing_soil_and_small_stones.mp4" type="video/mp4" width="56%">
+                Your browser does not support the video tag.
+              </video>
+              <p>Model: Wan2.1</p>
+              <p>Violation: The rock should roll downwards instead of upwards (Gravity)</p>
+              <p>Text Prompt: A small rock tumbles down a steep, rocky hillside, displacing soil and small stones.</p>
+            </div>
+          </div>
+          <!-- <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="/Users/clarkpeng/Documents/Python/VideoPhy2.github.io/videos/wan_bad/A_water_balloon_is_thrown_against_a_brick_wall,_splattering_water_and_leaving_a_wet_mark.mp4" type="video/mp4" width="56%">
+                Your browser does not support the video tag.
+              </video>
+              <p>Model: Wan2.1</p>
+              <p>Violation: The balloon doesn't pop, yet water falls (Permeability, Conservation of Mass)</p>
+              <p>Text Prompt: A water balloon is thrown against a brick wall, splattering water and leaving a wet mark.</p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="/Users/clarkpeng/Documents/Python/VideoPhy2.github.io/videos/wan_bad/Someone_inflates_a_water_balloon_until_it_is_taut_and_about_to_burst,_the_rubber_stretching_visibly.mp4" type="video/mp4" width="56%">
+                Your browser does not support the video tag.
+              </video>
+              <p>Model: Wan2.1</p>
+              <p>Violation: Water should not shoot from an initially empty parachute (Conservation of Mass)</p>
+              <p>Text Prompt: Someone inflates a water balloon until it is taut and about to burst, the rubber stretching visibly.</p>
+            </div>
+          </div> -->
+
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="/Users/clarkpeng/Documents/Python/videophy2.github.io/videos/coggood/A_child_pours_colorful_beads_from_a_plastic_container_into_a_glass_jar_until_they_overflow,_scattering_on_the_floor.mp4" type="video/mp4" width="56%">
+                Your browser does not support the video tag.
+              </video>
+              <p>Model: CogVideoX-5B</p>
+              <p>Violation: The beads should not leave the container without a hole (Permeability)</p>
+              <p>Text Prompt: A child pours colorful beads from a plastic container into a glass jar until they overflow, scattering on the floor.</p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="/Users/clarkpeng/Documents/Python/videophy2.github.io/videos/cosbad/A_person_vigorously_twists_a_wet_towel,_water_spraying_outwards_in_a_visible_arc.mp4" type="video/mp4" width="56%">
+                Your browser does not support the video tag.
+              </video>
+              <p>Model: Cosmos</p>
+              <p>Violation: The towel should not expell a stream of water with more volume than itself (Conservation of Mass)</p>
+              <p>Text Prompt: A person vigorously twists a wet towel, water spraying outwards in a visible arc.</p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="/Users/clarkpeng/Documents/Python/videophy2.github.io/videos/hunyuan/A_leaf_blower_is_pointed_at_a_patch_of_leaves_on_a_lawn.mp4" type="video/mp4" width="56%">
+                Your browser does not support the video tag.
+              </video>
+              <p>Model: Hunyuan</p>
+              <p>Violation: The leaves should be blow away from the leaf blower, not towards it (Conservation of Momentum)</p>
+              <p>Text Prompt: A leaf blower is pointed at a patch of leaves on a lawn; the leaves are forcefully displaced in a specific direction.</p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="/Users/clarkpeng/Documents/Python/videophy2.github.io/videos/luma/07378003-db24-49fa-97f3-af1d500e655f_result.mp4" type="video/mp4" width="56%">
+                Your browser does not support the video tag.
+              </video>
+              <p>Model: Ray2</p>
+              <p>Violation: The liquid should not leave the beaker until the level of the liquid is at the edge of the beaker (Bernouli's Principle)</p>
+              <p>Text Prompt: A chemist pours a clear liquid from a beaker into a test tube, carefully avoiding spills.</p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="/Users/clarkpeng/Documents/Python/videophy2.github.io/videos/sora_bad/Serenity+on+the+Lake.mp4" type="video/mp4" width="56%">
+                Your browser does not support the video tag.
+              </video>
+              <p>Model: Sora</p>
+              <p>Violation: The handle of the paddle should not flex at such a sharp angle without breaking, and paddle movements should leave visible ripples in the lake (Hardness, Reflection)</p>
+              <p>Text Prompt: A canoeist uses a single-bladed paddle to propel their canoe across a lake, the paddle's movement visible against the still water.</p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="/Users/clarkpeng/Documents/Python/videophy2.github.io/videos/vc/A_jump_rope_is_laid_on_the_ground_in_a_circular_pattern_after_use_.mp4" type="video/mp4" width="56%">
+                Your browser does not support the video tag.
+              </video>
+              <p>Model: VideoCrafter2</p>
+              <p>Violation: The rope should have the same length and number of ends at all times (Conservation of Mass)</p>
+              <p>Text Prompt: A jump rope is laid on the ground in a circular pattern after use.</p>
+            </div>
+          </div>
+          <!-- <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="/Users/clarkpeng/Documents/Python/VideoPhy2.github.io/videos/wan_bad/Someone_inflates_a_water_balloon_until_it_is_taut_and_about_to_burst,_the_rubber_stretching_visibly.mp4" type="video/mp4" width="56%">
+                Your browser does not support the video tag.
+              </video>
+              <p>Model: Wan2.1</p>
+              <p>Violation: Water should not shoot from an initially empty parachute (Conservation of Mass)</p>
+              <p>Text Prompt: Someone inflates a water balloon until it is taut and about to burst, the rubber stretching visibly.</p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="videos/A_feather_slowly_floats_down_to_the_ground.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>VideoScope (good physical commonsense)</p>
+              <p>Text Prompt: A feather slowly floats down to the ground.</p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <video controls muted loop playsinline>
+                <source src="videos/A_survivalist_strikes_a_flint_to_light_dry_tinder.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>VideoCrafter2 (good physical commonsense)</p>
+              <p>Text Prompt: A survivalist strikes a flint to light dry tinder</p>
+              
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+</section>
+<!-- 
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered content">
+        <div>
+          <h2 class="title is-3" id="leaderboard_test">Human Leaderboard on Video Generation Models</h2>
+          <div class="content">
+            <p class="mt-3">Human evaluation results on VideoPhy. We abbreviate semantic adherence as SA, physical commonsense as PC. SA, PC indicates the percentage of the instances for which SA=1 and PC=1.</p>
+    
+            <h3>Open Models</h3>
+              <table class="js-sort-table" id="results_open">
+                <tr>
+                  <td class="js-sort-number"><strong>#</strong></td>
+                  <td class="js-sort-number"><strong>Model</strong></td>
+                  <td class="js-sort-number"><strong>Source</strong></td>
+                  <td class="js-sort-number"><strong>All</strong></td>
+                  <td class="js-sort-number"><strong>Hard</strong></td>
+                  <td class="js-sort-number"><strong>PA</strong></td>
+                  <td class="js-sort-number"><strong>OI</strong></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><b class="best-score-text">Wan2.1-14B</b></td>
+                  <td>Open</td>
+                  <td><b class="best-score-text">32.6</b></td>
+                  <td><b class="best-score-text">21.9</b></td>
+                  <td><b class="best-score-text">31.5</b></td>
+                  <td><b class="best-score-text">36.2</b></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td><b>CogVideoX-5B</b></td>
+                  <td>Open</td>
+                  <td>25.0</td>
+                  <td>0.0</td>
+                  <td>24.6</td>
+                  <td>26.1</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td><b>Cosmos-Diff-7B</b></td>
+                  <td>Open</td>
+                  <td>24.1</td>
+                  <td>10.9</td>
+                  <td>22.6</td>
+                  <td>27.4</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td><b>Hunyuan-13B</b></td>
+                  <td>Open</td>
+                  <td>17.2</td>
+                  <td>6.2</td>
+                  <td>17.6</td>
+                  <td>15.9</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td><b>VideoCrafter-2</b></td>
+                  <td>Open</td>
+                  <td>10.5</td>
+                  <td>2.9</td>
+                  <td>10.1</td>
+                  <td>13.1</td>
+                </tr>
+              </table>
+
+              <h3>Closed Models</h3>
+              <table class="js-sort-table" id="results_closed">
+                <tr>
+                  <td class="js-sort-number"><strong>#</strong></td>
+                  <td class="js-sort-number"><strong>Model</strong></td>
+                  <td class="js-sort-number"><strong>Source</strong></td>
+                  <td class="js-sort-number"><strong>All</strong></td>
+                  <td class="js-sort-number"><strong>Hard</strong></td>
+                  <td class="js-sort-number"><strong>PA</strong></td>
+                  <td class="js-sort-number"><strong>OI</strong></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td><b class="best-score-text">Ray2</b></td>
+                  <td>Closed</td>
+                  <td>20.3</td>
+                  <td>8.3</td>
+                  <td>21.0</td>
+                  <td>18.5</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td><b>Sora</b></td>
+                  <td>Closed</td>
+                  <td>23.3</td>
+                  <td>5.3</td>
+                  <td>22.2</td>
+                  <td>26.7</td>
+                </tr>
+              </table>
+            <br>
+            <div>
+             <p>🚨 To submit your results to the leaderboard, please send to <a href="mailto:cipeng@gmail.com">this email</a> with your csv with video URL and captions from the model builders for human/automatic evaluation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+<!-- Benchmark -->
+<section class="section">
+  <div class="container" style="margin-top: -80px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">VideoPhy: Benchmark</h2>
+
+        <h3 class="title is-4">Detailed Leaderboard</h3>
+        <div>
+          <img src="images/leaderboard_human.png" alt="leaderboard" style="max-width:100%;"/>
+              <p>
+                <b>Human evaluation results on <span class="mathvista" style="vertical-align: middle">VideoPhy2</span> dataset.</b> We
+                present the joint performance that focuses on high semantic ad-
+                herence and high physical commonsense in the generated videos.
+                Hard, PA, OI refer to the hard, physical activities, and object in-
+                teractions subsets of the data, respectively. We mark the best per-
+                forming models in each column by blue and second best by yellow.
+              </p>
+        </div>
+
+        <h3 class="title is-4">Physical Laws Violation Analysis</h3>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/benchmark_statistics.png" alt="benchmark_statistics" style="max-width:50%;"/>
+              <p> 
+                We present the violation scores for diverse physical laws based on human annotations collected from various video generative models on <span class="mathvista" style="vertical-align: middle">VideoPhy2</span> dataset.
+              </p> 
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/all_wheel.png" alt="all_wheel" style="max-width:100%;"/>
+              <p>
+                Top-20 frequently occurring verbs (inner) and their top-5 direct nouns (outer).
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+</section>
+
+
+<!-- Auto Evaluation -->
+<section class="section">
+  <div class="container" style="margin-top: -80px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full  content">
+        <h2 class="title is-3 has-text-centered">Auto Evaluation of Physical Commonsense, Semantic Adherence, and Rule Applicability</h2>
+        <div>
+          <p>We use VideoCon-Physics as a base-model for robust semantic adherence evaluation. Specifically, we prompt our finetuned-model to generate a response (1-5) to the text adherence, physical commonsense, and rule applicability of the generated videos. </p>
+        </div>
+        <!-- <div style="text-align: center;">
+          <img src="images/formular.png" alt="formular" style="max-width:40%;"/>
+        </div> -->
+        
+        <div class="has-text-centered">
+          <h3 class="title is-4" style="margin-top: 60px">Effectiveness of Our Auto-Evaluator</h3>
+          <img src="images/auto_rater.png" alt="roc-auc" style="max-width:55%;"/>
+              <p>
+                <b>Auto-rater evaluation results (pearson’s correlation ×100)</b> between the predicted scores and ground-truth scores (1-5) on the unseen prompts and unseen video models.
+              </p>
+        </div>
+
+
+        <div class="has-text-centered">
+          <h3 class="title is-4" style="margin-top: 60px">Effectiveness of Our Auto-Evaluator</h3>
+          <img src="images/auto_rater_joint.png" alt="roc-auc" style="max-width:55%;"/>
+              <p>
+                <b>Auto-rater evaluation on joint score judgments. </b> We present the joint accuracy and F1 score between the pre-
+                dicted scores and ground-truth scores (0-1) for our VideoPhy2-autoeval and VideoCon-Physics.
+              </p>
+        </div>
+
+
+        <div class="has-text-centered">
+          <h3 class="title is-4" style="margin-top: 60px">Effectiveness of Our Auto-Evaluator</h3>
+          <img src="images/auto_rater_joint.png" alt="roc-auc" style="max-width:55%;"/>
+              <p>
+                <b>Auto-rater evaluation on physical rule classification.</b>We present the accuracy results for VideoPhy2-autoeval and
+                other video-language models on the rule classification tasks.
+              </p>
+        </div>
+
+      </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container" style="margin-top: -80px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full  content">
+        <div class="section" id="org-banners" style="display: flex; justify-content: center; align-items: center;">
+          <a href="https://www.ucla.edu/" target="_blank" rel="external">
+              <img class="center-block org-banner" src="images/ucla.png" style="height:40px; margin-right: 10px;">
+          </a>
+          <a href="https://www.washington.edu/" target="blank" class="ext-link">
+              <img class="center-block org-banner" src="images/google_research.png" style="height:120px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+        href="http://arxiv.org/abs/2406.03520">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/Hritikbansal/videophy" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
