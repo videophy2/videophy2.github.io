@@ -436,119 +436,34 @@
     <div class="columns is-centered">
       <div class="column is-full has-text-centered content">
         <div>
-          <h2 class="title is-3" id="leaderboard_test">Human Leaderboard on Video Generation Models</h2>
+          <h2 class="title is-3" id="leaderboard_test">Leaderboard on Video Generation Models</h2>
           <div class="content">
-            <p class="mt-3">Human evaluation results on VideoPhy. We abbreviate semantic adherence as SA, physical commonsense as PC. SA, PC indicates the percentage of the instances for which SA=1 and PC=1.</p>
-    
-            <h3>Open Models</h3>
-              <table class="js-sort-table" id="results_open">
-                <tr>
-                  <td class="js-sort-number"><strong>#</strong></td>
-                  <td class="js-sort-number"><strong>Model</strong></td>
-                  <td class="js-sort-number"><strong>Source</strong></td>
-                  <td class="js-sort-number"><strong>All</strong></td>
-                  <td class="js-sort-number"><strong>Hard</strong></td>
-                  <td class="js-sort-number"><strong>PA</strong></td>
-                  <td class="js-sort-number"><strong>OI</strong></td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td><b class="best-score-text">Wan2.1-14B</b></td>
-                  <td>Open</td>
-                  <td><b class="best-score-text">32.6</b></td>
-                  <td><b class="best-score-text">21.9</b></td>
-                  <td><b class="best-score-text">31.5</b></td>
-                  <td><b class="best-score-text">36.2</b></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td><b>CogVideoX-5B</b></td>
-                  <td>Open</td>
-                  <td>25.0</td>
-                  <td>0.0</td>
-                  <td>24.6</td>
-                  <td>26.1</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td><b>Cosmos-Diff-7B</b></td>
-                  <td>Open</td>
-                  <td>24.1</td>
-                  <td>10.9</td>
-                  <td>22.6</td>
-                  <td>27.4</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td><b>Hunyuan-13B</b></td>
-                  <td>Open</td>
-                  <td>17.2</td>
-                  <td>6.2</td>
-                  <td>17.6</td>
-                  <td>15.9</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td><b>VideoCrafter-2</b></td>
-                  <td>Open</td>
-                  <td>10.5</td>
-                  <td>2.9</td>
-                  <td>10.1</td>
-                  <td>13.1</td>
-                </tr>
+            <p class="mt-3">Joint scores: the percentage of test prompts whose video both follows the prompt (SA &ge; 4) and is physically plausible (PC &ge; 4). <b>Human</b> scores come from our human evaluation; <b>AutoEval</b> scores come from VideoPhy-2-AutoEval. Rows marked VideoPhy-2 (ours) were evaluated by us (<a href="static/data/videophy2_autoeval_scores.csv">per-video AutoEval scores</a>); other rows are self-reported by other papers and not verified by us. AutoEval and human scores are not directly comparable. Click a column to sort.</p>
+              <table class="js-sort-table" id="results_all">
+                <tr><td class="js-sort-number"><strong>#</strong></td><td><strong>Model</strong></td><td><strong>Type</strong></td><td class="js-sort-number"><strong>Human All</strong></td><td class="js-sort-number"><strong>Human Hard</strong></td><td class="js-sort-number"><strong>AutoEval All</strong></td><td class="js-sort-number"><strong>AutoEval Hard</strong></td><td><strong>Source</strong></td></tr>
+                <tr><td>1</td><td><b>PhyEvolve</b></td><td>Agentic</td><td>&ndash;</td><td>&ndash;</td><td><b class="best-score-text">30.1</b></td><td>12.8</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve</a></td></tr>
+                <tr><td>2</td><td><b>CogVideoX-5B</b></td><td>Open</td><td>&ndash;</td><td>&ndash;</td><td>25.9</td><td>5.0</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve</a></td></tr>
+                <tr><td>3</td><td><b>Wan2.2-TI2V-5B</b></td><td>Open</td><td>&ndash;</td><td>&ndash;</td><td>24.9</td><td>7.2</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve</a></td></tr>
+                <tr><td>4</td><td><b>Co-Director</b></td><td>Agentic</td><td>&ndash;</td><td>&ndash;</td><td>24.9</td><td>5.0</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve</a></td></tr>
+                <tr><td>5</td><td><b>Minimax-H3</b></td><td>Closed</td><td>&ndash;</td><td>&ndash;</td><td>23.9</td><td>4.4</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve</a></td></tr>
+                <tr><td>6</td><td><b>Veo 3.1</b></td><td>Closed</td><td>&ndash;</td><td>&ndash;</td><td>23.7*</td><td>&ndash;</td><td><a href="https://arxiv.org/abs/2609.40358">Physis-Lang</a></td></tr>
+                <tr><td>7</td><td><b>Wan2.1-T2V-14B</b></td><td>Open</td><td>&ndash;</td><td>&ndash;</td><td>23.5*</td><td>&ndash;</td><td><a href="https://arxiv.org/abs/2609.40358">Physis-Lang</a></td></tr>
+                <tr><td>8</td><td><b>NEWTON</b></td><td>Agentic</td><td>&ndash;</td><td>&ndash;</td><td>23.2</td><td>6.7</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve</a></td></tr>
+                <tr><td>9</td><td><b>CogVideoX1.5-5B</b></td><td>Open</td><td>&ndash;</td><td>&ndash;</td><td>23.0*</td><td>&ndash;</td><td><a href="https://arxiv.org/abs/2609.40358">Physis-Lang</a></td></tr>
+                <tr><td>10</td><td><b>Cosmos3-Nano</b></td><td>Open</td><td>&ndash;</td><td>&ndash;</td><td>22.8</td><td>&ndash;</td><td><a href="https://arxiv.org/abs/2609.03153">VeriPhy</a></td></tr>
+                <tr><td>11</td><td><b>Cosmos-Predict2.5</b></td><td>Open</td><td>&ndash;</td><td>&ndash;</td><td>22.7</td><td>7.8</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve</a></td></tr>
+                <tr><td>12</td><td><b>HunyuanVideo</b></td><td>Open</td><td>&ndash;</td><td>&ndash;</td><td>22.5</td><td>6.7</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve</a></td></tr>
+                <tr><td>13</td><td><b>LTX-Video-2.5</b></td><td>Open</td><td>&ndash;</td><td>&ndash;</td><td>22.2</td><td>3.9</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve</a></td></tr>
+                <tr><td>14</td><td><b>Sora&dagger;</b></td><td>Closed</td><td>23.3</td><td>5.3</td><td>21.7</td><td>5.3</td><td>VideoPhy-2 (ours)</td></tr>
+                <tr><td>15</td><td><b>LTX-Video-2B</b></td><td>Open</td><td>&ndash;</td><td>&ndash;</td><td>21.4</td><td>4.4</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve</a></td></tr>
+                <tr><td>16</td><td><b>Hunyuan-13B</b></td><td>Open</td><td>17.2</td><td>6.2</td><td>19.6</td><td>6.2</td><td>VideoPhy-2 (ours)</td></tr>
+                <tr><td>17</td><td><b>CogVideoX-5B</b></td><td>Open</td><td>25.0</td><td>0.0</td><td>19.5</td><td>5.1</td><td>VideoPhy-2 (ours)</td></tr>
+                <tr><td>18</td><td><b>Ray2&dagger;</b></td><td>Closed</td><td>20.3</td><td>8.3</td><td>17.5</td><td>5.0</td><td>VideoPhy-2 (ours)</td></tr>
+                <tr><td>19</td><td><b>Wan2.1-14B</b></td><td>Open</td><td><b class="best-score-text">32.6</b></td><td>21.9</td><td>16.9</td><td>2.2</td><td>VideoPhy-2 (ours)</td></tr>
+                <tr><td>20</td><td><b>VideoCrafter-2</b></td><td>Open</td><td>10.5</td><td>2.9</td><td>16.4</td><td>3.6</td><td>VideoPhy-2 (ours)</td></tr>
+                <tr><td>21</td><td><b>Cosmos-Diff-7B</b></td><td>Open</td><td>24.1</td><td>10.9</td><td>14.7</td><td>3.4</td><td>VideoPhy-2 (ours)</td></tr>
               </table>
-
-              <h3>Closed Models</h3>
-              <table class="js-sort-table" id="results_closed">
-                <tr>
-                  <td class="js-sort-number"><strong>#</strong></td>
-                  <td class="js-sort-number"><strong>Model</strong></td>
-                  <td class="js-sort-number"><strong>Source</strong></td>
-                  <td class="js-sort-number"><strong>All</strong></td>
-                  <td class="js-sort-number"><strong>Hard</strong></td>
-                  <td class="js-sort-number"><strong>PA</strong></td>
-                  <td class="js-sort-number"><strong>OI</strong></td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td><b>Sora</b></td>
-                  <td>Closed</td>
-                  <td>23.3</td>
-                  <td>5.3</td>
-                  <td>22.2</td>
-                  <td>26.7</td>
-                </tr>
-              <tr>
-                  <td>2</td>
-                  <td><b class="best-score-text">Ray2</b></td>
-                  <td>Closed</td>
-                  <td>20.3</td>
-                  <td>8.3</td>
-                  <td>21.0</td>
-                  <td>18.5</td>
-                </tr>
-              </table>
-
-              <h3>AutoEval Results Reported in Other Papers</h3>
-              <p>Scores from VideoPhy-2-AutoEval as reported by other papers, not verified by us and not directly comparable with the human leaderboard above. All and Hard are joint scores (SA &ge; 4 and PC &ge; 4); SA and PC are on the full test set; &ndash; means the source did not report it.</p>
-              <table class="js-sort-table" id="results_reported">
-                <tr><td class="js-sort-number"><strong>#</strong></td><td><strong>Model</strong></td><td><strong>Type</strong></td><td class="js-sort-number"><strong>All</strong></td><td class="js-sort-number"><strong>Hard</strong></td><td class="js-sort-number"><strong>SA</strong></td><td class="js-sort-number"><strong>PC</strong></td><td><strong>Reported in</strong></td></tr>
-                                                <tr><td>1</td><td><b>PhyEvolve</b></td><td>Agentic (H3)</td><td>30.1</td><td>12.8</td><td>34.5</td><td>83.9</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve (2026)</a></td></tr>
-                <tr><td>2</td><td><b>CogVideoX-5B</b></td><td>Open</td><td>25.9</td><td>5.0</td><td>30.2</td><td>69.2</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve (2026)</a></td></tr>
-                <tr><td>3</td><td><b>Wan2.2-TI2V-5B</b></td><td>Open</td><td>24.9</td><td>7.2</td><td>29.6</td><td>56.7</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve (2026)</a></td></tr>
-                <tr><td>4</td><td><b>Co-Director</b></td><td>Agentic (H3)</td><td>24.9</td><td>5.0</td><td>30.1</td><td>55.8</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve (2026)</a></td></tr>
-                <tr><td>5</td><td><b>Minimax-H3</b></td><td>Closed</td><td>23.9</td><td>4.4</td><td>29.8</td><td>69.5</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve (2026)</a></td></tr>
-                <tr><td>6</td><td><b>Veo 3.1</b></td><td>Closed</td><td>23.7*</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td><a href="https://arxiv.org/abs/2609.40358">Physis-Lang (2026)</a></td></tr>
-                <tr><td>7</td><td><b>Wan2.1-T2V-14B</b></td><td>Open</td><td>23.5*</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td><a href="https://arxiv.org/abs/2609.40358">Physis-Lang (2026)</a></td></tr>
-                <tr><td>8</td><td><b>NEWTON</b></td><td>Agentic (H3)</td><td>23.2</td><td>6.7</td><td>29.0</td><td>72.5</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve (2026)</a></td></tr>
-                <tr><td>9</td><td><b>CogVideoX1.5-5B</b></td><td>Open</td><td>23.0*</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td><a href="https://arxiv.org/abs/2609.40358">Physis-Lang (2026)</a></td></tr>
-                <tr><td>10</td><td><b>Cosmos3-Nano</b></td><td>Open</td><td>22.8</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td><a href="https://arxiv.org/abs/2609.03153">VeriPhy (2026)</a></td></tr>
-                <tr><td>11</td><td><b>Cosmos-Predict2.5</b></td><td>Open</td><td>22.7</td><td>7.8</td><td>28.3</td><td>58.6</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve (2026)</a></td></tr>
-                <tr><td>12</td><td><b>HunyuanVideo</b></td><td>Open</td><td>22.5</td><td>6.7</td><td>25.3</td><td>73.6</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve (2026)</a></td></tr>
-                <tr><td>13</td><td><b>LTX-Video-2.5</b></td><td>Open</td><td>22.2</td><td>3.9</td><td>28.8</td><td>54.7</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve (2026)</a></td></tr>
-                <tr><td>14</td><td><b>LTX-Video-2B</b></td><td>Open</td><td>21.4</td><td>4.4</td><td>22.9</td><td>74.3</td><td><a href="https://arxiv.org/abs/2610.30717">PhyEvolve (2026)</a></td></tr>
-              </table>
-              <p class="is-size-7">* The source does not state the split or metric; we assume the full-test joint score and are confirming with the authors.</p>
+              <p class="is-size-7">&dagger; Sora was evaluated on a 60-prompt subset through its UI (no API); Ray2 on 394 prompts due to API budget. * The source does not state the split or metric; we assume the full-test joint score and are confirming with the authors. &ndash; means not reported.</p>
             <br>
             <div>
              <p>🚨 To add your model, run <a href="https://github.com/Hritikbansal/videophy/tree/main/VIDEOPHY2">VideoPhy-2-AutoEval</a> on the test set and <a href="https://github.com/videophy2/videophy2.github.io/pulls">open a pull request</a> adding your self-reported scores with a link to your paper or code. Questions: <a href="mailto:cipeng@g.ucla.edu">cipeng@g.ucla.edu</a>.</p>
