@@ -1,13 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="VideoPhy2 Content">
-  <meta name="keywords" content="Video Generation, Physics, Physical Commonsense, videophysics, videophy">
+  <title>VideoPhy-2: Physical Commonsense Benchmark and Leaderboard for Video Generation</title>
+  <meta name="description" content="VideoPhy-2 (ICLR 2026) tests whether text-to-video models follow physical commonsense across real-world actions, with human and AutoEval leaderboards, a trained auto-evaluator, and open train and test sets.">
+  <meta name="keywords" content="VideoPhy-2, VideoPhy, video generation, physical commonsense, text-to-video benchmark, leaderboard, world models, AutoEval">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VIDEOPHY: Evaluating Physical Commonsense In Video Generation</title>
+  <link rel="canonical" href="https://videophy2.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VideoPhy-2: Physical Commonsense Benchmark and Leaderboard for Video Generation">
+  <meta property="og:description" content="VideoPhy-2 (ICLR 2026) tests whether text-to-video models follow physical commonsense across real-world actions, with human and AutoEval leaderboards, a trained auto-evaluator, and open train and test sets.">
+  <meta property="og:url" content="https://videophy2.github.io/">
+  <meta property="og:image" content="https://videophy2.github.io/images/VideoPhysics2.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="citation_title" content="VideoPhy-2: A Challenging Action-Centric Physical Commonsense Evaluation in Video Generation">
+  <meta name="citation_author" content="Hritik Bansal">
+  <meta name="citation_author" content="Clark Peng">
+  <meta name="citation_author" content="Yonatan Bitton">
+  <meta name="citation_author" content="Roman Goldenberg">
+  <meta name="citation_author" content="Aditya Grover">
+  <meta name="citation_author" content="Kai-Wei Chang">
+  <meta name="citation_publication_date" content="2025/03/09">
+  <meta name="citation_conference_title" content="International Conference on Learning Representations (ICLR 2026)">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2503.06800">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://videophy2.github.io/#paper",
+      "headline": "VideoPhy-2: A Challenging Action-Centric Physical Commonsense Evaluation in Video Generation",
+      "description": "VideoPhy-2 (ICLR 2026) tests whether text-to-video models follow physical commonsense across real-world actions, with human and AutoEval leaderboards, a trained auto-evaluator, and open train and test sets.",
+      "url": "https://videophy2.github.io/",
+      "sameAs": [
+        "https://arxiv.org/abs/2503.06800"
+      ],
+      "datePublished": "2025-03-09",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Hritik Bansal",
+          "url": "https://sites.google.com/view/hbansal"
+        },
+        {
+          "@type": "Person",
+          "name": "Clark Peng",
+          "url": "https://clarkipeng.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Yonatan Bitton",
+          "url": "https://yonatanbitton.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Roman Goldenberg"
+        },
+        {
+          "@type": "Person",
+          "name": "Aditya Grover",
+          "url": "https://aditya-grover.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Kai-Wei Chang",
+          "url": "https://web.cs.ucla.edu/~kwchang/"
+        }
+      ],
+      "isPartOf": {
+        "@type": "Event",
+        "name": "ICLR 2026"
+      },
+      "award": "Best Paper, ICML 2025 World Models Workshop",
+      "keywords": [
+        "video generation",
+        "physical commonsense",
+        "benchmark",
+        "text-to-video evaluation",
+        "world models"
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "name": "VideoPhy-2",
+      "description": "Action-centric benchmark of text prompts and human annotations for evaluating physical commonsense and semantic adherence in generated videos.",
+      "url": "https://videophy2.github.io/",
+      "citation": "https://videophy2.github.io/#paper",
+      "creator": [
+        {
+          "@type": "Person",
+          "name": "Hritik Bansal",
+          "url": "https://sites.google.com/view/hbansal"
+        },
+        {
+          "@type": "Person",
+          "name": "Clark Peng",
+          "url": "https://clarkipeng.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Yonatan Bitton",
+          "url": "https://yonatanbitton.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Roman Goldenberg"
+        },
+        {
+          "@type": "Person",
+          "name": "Aditya Grover",
+          "url": "https://aditya-grover.github.io/"
+        },
+        {
+          "@type": "Person",
+          "name": "Kai-Wei Chang",
+          "url": "https://web.cs.ucla.edu/~kwchang/"
+        }
+      ],
+      "isAccessibleForFree": true,
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "VideoPhy-2 test set",
+          "contentUrl": "https://huggingface.co/datasets/videophysics/videophy2_test",
+          "encodingFormat": "text/csv"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "VideoPhy-2 train set",
+          "contentUrl": "https://huggingface.co/datasets/videophysics/videophy2_train",
+          "encodingFormat": "text/csv"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "AutoEval per-video scores",
+          "contentUrl": "https://videophy2.github.io/static/data/videophy2_autoeval_scores.csv",
+          "encodingFormat": "text/csv"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "VideoPhy-2-AutoEval",
+      "applicationCategory": "Machine learning model",
+      "url": "https://huggingface.co/videophysics/videophy_2_auto",
+      "codeRepository": "https://github.com/Hritikbansal/videophy/tree/main/VIDEOPHY2"
+    }
+  ]
+}
+  </script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https/wwwgoogletagmanagercom/gtag/2054635620.js"></script>
@@ -113,7 +256,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <img src="images/physics_verylong.png" alt="Descriptive Text" style="max-width: 90%; height: auto;">
+          <img src="images/physics_verylong.png" alt="VideoPhy-2 banner" style="max-width: 90%; height: auto;">
           
 
           <h1 class="title is-1 publication-title is-bold">
@@ -124,6 +267,7 @@
             <!-- <br> -->
             <!-- with GPT-4V, Bard, and Other Large Multimodal Models -->
           </h2>
+          <p class="is-size-5">ICLR 2026 &middot; Best Paper, ICML 2025 World Models Workshop</p>
           <!-- <h1 class="title is-1 publication-title">VIDEOPHY: Evaluating Physical Commonsense In Video Generation</h1> -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -276,8 +420,8 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <div class="images-container" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 270px;">
-        <img src="images/main_graph.png" alt="Image 1" style="height: 100%; object-fit: contain;" >
-        <img src="images/VideoPhysics2.png" alt="Image 2" style="height: 100%; object-fit: contain;">
+        <img src="images/main_graph.png" alt="VideoPhy-2 data and annotation pipeline" style="height: 100%; object-fit: contain;" >
+        <img src="images/VideoPhysics2.png" alt="VideoPhy-2 pipeline overview" style="height: 100%; object-fit: contain;">
       </div>
       <h2 class="has-text-centered">
         <span class="dnerf">VIDEOPHY 2 PIPELINE</span>, <b>Top:</b> We generate a text prompt from the seed action using an LLM, create a video with a text-to-video model, and caption it with a VLM to extract candidate physical rules. 
@@ -438,7 +582,7 @@
         <div>
           <h2 class="title is-3" id="leaderboard_test">Leaderboard on Video Generation Models</h2>
           <div class="content">
-            <p class="mt-3">Scores are joint: the percentage of test prompts whose video both follows the prompt (SA &ge; 4) and is physically plausible (PC &ge; 4). PA and OI are the physical-activity and object-interaction categories.</p>
+            <p class="mt-3">Scores are joint: the percentage of test prompts whose video both follows the prompt (SA &ge; 4) and is physically plausible (PC &ge; 4). PA and OI are the physical-activity and object-interaction categories. Last updated November 2026.</p>
               <h3>Human Leaderboard</h3>
               <table class="js-sort-table" id="results_human">
                 <tr><td class="js-sort-number"><strong>#</strong></td><td><strong>Model</strong></td><td><strong>Type</strong></td><td class="js-sort-number"><strong>All</strong></td><td class="js-sort-number"><strong>Hard</strong></td><td class="js-sort-number"><strong>PA</strong></td><td class="js-sort-number"><strong>OI</strong></td></tr>
@@ -505,7 +649,7 @@
 <!-- 
         <h3 class="title is-4">Detailed Leaderboard</h3>
         <div>
-          <img src="images/leaderboard_human.png" alt="leaderboard" style="max-width:100%;"/>
+          <img src="images/leaderboard_human.png" alt="VideoPhy-2 human evaluation results" style="max-width:100%;"/>
               <p>
                 <b>Human evaluation results on <span class="mathvista" style="vertical-align: middle">VideoPhy2</span> dataset.</b> We
                 present the joint performance that focuses on high semantic ad-
@@ -520,7 +664,7 @@
         <div id="results-carousel" class="carousel results-carousel">
           <div class="box m-5">
             <div class="content has-text-centered">
-              <img src="images/benchmark_statistics.png" alt="benchmark_statistics" style="max-width:50%;"/>
+              <img src="images/benchmark_statistics.png" alt="Physical law violation scores by law" style="max-width:50%;"/>
               <p> 
                 We present the violation scores for diverse physical laws based on human annotations collected from various video generative models on <span class="mathvista" style="vertical-align: middle">VideoPhy2</span> dataset.
               </p> 
@@ -528,7 +672,7 @@
           </div>
           <div class="box m-5">
             <div class="content has-text-centered">
-              <img src="images/all_wheel.png" alt="all_wheel" style="max-width:100%;"/>
+              <img src="images/all_wheel.png" alt="Top-20 verbs and their top-5 nouns in VideoPhy-2 prompts" style="max-width:100%;"/>
               <p>
                 Top-20 frequently occurring verbs (inner) and their top-5 direct nouns (outer).
               </p>
@@ -552,12 +696,12 @@
           <p>We use VideoCon-Physics as a base-model for robust semantic adherence evaluation. Specifically, we prompt our finetuned-model to generate a response (1-5) to the text adherence, physical commonsense, and rule applicability of the generated videos. </p>
         </div>
         <!-- <div style="text-align: center;">
-          <img src="images/formular.png" alt="formular" style="max-width:40%;"/>
+          <img src="images/formular.png" alt="AutoEval prompt format" style="max-width:40%;"/>
         </div> -->
         
         <div class="has-text-centered">
           <h3 class="title is-4" style="margin-top: 60px">Effectiveness of Our Auto-Evaluator</h3>
-          <img src="images/auto_rater.png" alt="roc-auc" style="max-width:55%;"/>
+          <img src="images/auto_rater.png" alt="AutoEval correlation with human scores" style="max-width:55%;"/>
               <p>
                 <b>Auto-rater evaluation results (pearson’s correlation ×100)</b> between the predicted scores and ground-truth scores (1-5) on the unseen prompts and unseen video models.
               </p>
@@ -566,7 +710,7 @@
 
         <div class="has-text-centered">
           <h3 class="title is-4" style="margin-top: 60px">Effectiveness of Our Auto-Evaluator</h3>
-          <img src="images/auto_rater_joint.png" alt="roc-auc" style="max-width:55%;"/>
+          <img src="images/auto_rater_joint.png" alt="AutoEval joint score accuracy and F1" style="max-width:55%;"/>
               <p>
                 <b>Auto-rater evaluation on joint score judgments. </b> We present the joint accuracy and F1 score between the pre-
                 dicted scores and ground-truth scores (0-1) for our VideoPhy2-autoeval and VideoCon-Physics.
@@ -576,7 +720,7 @@
 
         <div class="has-text-centered">
           <h3 class="title is-4" style="margin-top: 60px">Effectiveness of Our Auto-Evaluator</h3>
-          <img src="images/auto_rater_joint.png" alt="roc-auc" style="max-width:55%;"/>
+          <img src="images/auto_rater_rule.png" alt="AutoEval physical rule classification accuracy" style="max-width:55%;"/>
               <p>
                 <b>Auto-rater evaluation on physical rule classification.</b>We present the accuracy results for VideoPhy2-autoeval and
                 other video-language models on the rule classification tasks.
@@ -593,14 +737,27 @@
       <div class="column is-full  content">
         <div class="section" id="org-banners" style="display: flex; justify-content: center; align-items: center;">
           <a href="https://www.ucla.edu/" target="_blank" rel="external">
-              <img class="center-block org-banner" src="images/ucla.png" style="height:40px; margin-right: 10px;">
+              <img class="center-block org-banner" src="images/ucla.png" alt="UCLA" style="height:40px; margin-right: 10px;">
           </a>
           <a href="https://www.washington.edu/" target="blank" class="ext-link">
-              <img class="center-block org-banner" src="images/google_research.png" style="height:120px;">
+              <img class="center-block org-banner" src="images/google_research.png" alt="Google Research" style="height:120px;">
           </a>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">Citation</h2>
+    <pre><code>@inproceedings{bansal2026videophy2,
+  title     = {VideoPhy-2: A Challenging Action-Centric Physical Commonsense Evaluation in Video Generation},
+  author    = {Bansal, Hritik and Peng, Clark and Bitton, Yonatan and Goldenberg, Roman and Grover, Aditya and Chang, Kai-Wei},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2026},
+  url       = {https://arxiv.org/abs/2503.06800}
+}</code></pre>
   </div>
 </section>
 
