@@ -260,10 +260,10 @@
           
 
           <h1 class="title is-1 publication-title is-bold">
-          <span class="mathvista" style="vertical-align: middle">VideoPhy 2</span>
+          <span class="mathvista" style="vertical-align: middle">VideoPhy-2</span>
           </h1>
           <h2 class="subtitle is-3 publication-subtitle">
-            Challenging Action-Centric Physical Commonsense Evaluation of Video Generation
+            A Challenging Action-Centric Physical Commonsense Evaluation in Video Generation
             <!-- <br> -->
             <!-- with GPT-4V, Bard, and Other Large Multimodal Models -->
           </h2>
@@ -281,10 +281,10 @@
               <a href="https://scholar.google.com/citations?user=yggUoWYAAAAJ&hl=en">Roman Goldenberg</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://aditya-grover.github.io/">Aditya Grover</a><sup>1</sup>
+              <a href="https://aditya-grover.github.io/">Aditya Grover</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://web.cs.ucla.edu/~kwchang/">Kai-Wei Chang</a><sup>1</sup>,
+              <a href="https://web.cs.ucla.edu/~kwchang/">Kai-Wei Chang</a><sup>1</sup>
             </span>
           </div>
 
@@ -292,7 +292,7 @@
             (<span style="color: red;">*</span>, <span style="color: blue;">^</span>, <span style="color: purple;">~</span>, Equal Contribution)
           </div> -->
           <div class="is-size-5 publication-authors">
-            (<span style="color: red;">*</span> Equal Contribution)
+            (<span style="color: red;">*</span>Equal contribution)
           </div>
 
           <div class="is-size-5 publication-authors">
@@ -339,9 +339,7 @@
                 <a href="https://huggingface.co/videophysics/videophy_2_auto"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <!-- <i class="far fa-images"></i> -->
-                      <p style="font-size:18px">🤗</p>
-                      <!-- 🔗 -->
+                      <i class="fas fa-cube"></i>
                   </span>
                   <span>Model</span>
                 </a>
@@ -424,7 +422,7 @@
         <img src="images/VideoPhysics2.png" alt="VideoPhy-2 pipeline overview" style="height: 100%; object-fit: contain;">
       </div>
       <h2 class="has-text-centered">
-        <span class="dnerf">VIDEOPHY 2 PIPELINE</span>, <b>Top:</b> We generate a text prompt from the seed action using an LLM, create a video with a text-to-video model, and caption it with a VLM to extract candidate physical rules. 
+        <span class="dnerf">VideoPhy-2 pipeline.</span> <b>Top:</b> We generate a text prompt from the seed action using an LLM, create a video with a text-to-video model, and caption it with a VLM to extract candidate physical rules. 
         <b>Bottom:</b> Human annotators rate the video's physical likelihood, verify rule violations, suggest missing rules, and assess semantic adherence to the input prompt.
       </h2>
     </div>
@@ -490,7 +488,7 @@
                 Your browser does not support the video tag.
               </video>
               <p>Model: Cosmos</p>
-              <p>Violation: The towel should not expell a stream of water with more volume than itself (Conservation of Mass)</p>
+              <p>Violation: The towel should not expel a stream of water with more volume than itself (Conservation of Mass)</p>
               <p>Text Prompt: A person vigorously twists a wet towel, water spraying outwards in a visible arc.</p>
             </div>
           </div>
@@ -501,7 +499,7 @@
                 Your browser does not support the video tag.
               </video>
               <p>Model: Hunyuan</p>
-              <p>Violation: The leaves should be blow away from the leaf blower, not towards it (Conservation of Momentum)</p>
+              <p>Violation: The leaves should be blown away from the leaf blower, not towards it (Conservation of Momentum)</p>
               <p>Text Prompt: A leaf blower is pointed at a patch of leaves on a lawn; the leaves are forcefully displaced in a specific direction.</p>
             </div>
           </div>
@@ -512,7 +510,7 @@
                 Your browser does not support the video tag.
               </video>
               <p>Model: Ray2</p>
-              <p>Violation: The liquid should not leave the beaker until the level of the liquid is at the edge of the beaker (Bernouli's Principle)</p>
+              <p>Violation: The liquid should not leave the beaker until the level of the liquid is at the edge of the beaker (Bernoulli's Principle)</p>
               <p>Text Prompt: A chemist pours a clear liquid from a beaker into a test tube, carefully avoiding spills.</p>
             </div>
           </div>
@@ -629,7 +627,7 @@
               <p class="is-size-7">* The source does not state the split or metric; we assume the full-test joint score and are confirming with the authors. &ndash; means not reported.</p>
             <br>
             <div>
-             <p>🚨 To add your model, run <a href="https://github.com/Hritikbansal/videophy/tree/main/VIDEOPHY2">VideoPhy-2-AutoEval</a> on the test set and <a href="https://github.com/videophy2/videophy2.github.io/pulls">open a pull request</a> adding your self-reported scores with a link to your paper or code. Questions: <a href="mailto:cipeng@g.ucla.edu">cipeng@g.ucla.edu</a>.</p>
+             <p>To add your model, run <a href="https://github.com/Hritikbansal/videophy/tree/main/VIDEOPHY2">VideoPhy-2-AutoEval</a> on the test set and <a href="https://github.com/videophy2/videophy2.github.io/pulls">open a pull request</a> adding your self-reported scores with a link to your paper or code. Questions: <a href="mailto:cipeng@g.ucla.edu">cipeng@g.ucla.edu</a>.</p>
             </div>
           </div>
         </div>
@@ -645,13 +643,13 @@
   <div class="container" style="margin-top: -80px;">
     <div class="columns is-centered m-6">
       <div class="column is-full has-text-centered content">
-        <h2 class="title is-3">VideoPhy: Benchmark</h2>
+        <h2 class="title is-3">VideoPhy-2 Benchmark</h2>
 <!-- 
         <h3 class="title is-4">Detailed Leaderboard</h3>
         <div>
           <img src="images/leaderboard_human.png" alt="VideoPhy-2 human evaluation results" style="max-width:100%;"/>
               <p>
-                <b>Human evaluation results on <span class="mathvista" style="vertical-align: middle">VideoPhy2</span> dataset.</b> We
+                <b>Human evaluation results on the <span class="mathvista" style="vertical-align: middle">VideoPhy-2</span> dataset.</b> We
                 present the joint performance that focuses on high semantic ad-
                 herence and high physical commonsense in the generated videos.
                 Hard, PA, OI refer to the hard, physical activities, and object in-
@@ -666,7 +664,7 @@
             <div class="content has-text-centered">
               <img src="images/benchmark_statistics.png" alt="Physical law violation scores by law" style="max-width:50%;"/>
               <p> 
-                We present the violation scores for diverse physical laws based on human annotations collected from various video generative models on <span class="mathvista" style="vertical-align: middle">VideoPhy2</span> dataset.
+                We present the violation scores for diverse physical laws based on human annotations collected from various video generative models on the <span class="mathvista" style="vertical-align: middle">VideoPhy-2</span> dataset.
               </p> 
             </div>
           </div>
@@ -693,7 +691,7 @@
       <div class="column is-full  content">
         <h2 class="title is-3 has-text-centered">Auto Evaluation of Physical Commonsense, Semantic Adherence, and Rule Applicability</h2>
         <div>
-          <p>We use VideoCon-Physics as a base-model for robust semantic adherence evaluation. Specifically, we prompt our finetuned-model to generate a response (1-5) to the text adherence, physical commonsense, and rule applicability of the generated videos. </p>
+          <p>We use VideoCon-Physics as the base model for robust semantic adherence evaluation. We prompt the fine-tuned model to rate (1-5) the semantic adherence, physical commonsense, and rule applicability of each generated video.</p>
         </div>
         <!-- <div style="text-align: center;">
           <img src="images/formular.png" alt="AutoEval prompt format" style="max-width:40%;"/>
@@ -703,7 +701,7 @@
           <h3 class="title is-4" style="margin-top: 60px">Effectiveness of Our Auto-Evaluator</h3>
           <img src="images/auto_rater.png" alt="AutoEval correlation with human scores" style="max-width:55%;"/>
               <p>
-                <b>Auto-rater evaluation results (pearson’s correlation ×100)</b> between the predicted scores and ground-truth scores (1-5) on the unseen prompts and unseen video models.
+                <b>Auto-rater evaluation results (Pearson correlation ×100)</b> between the predicted scores and ground-truth scores (1-5) on the unseen prompts and unseen video models.
               </p>
         </div>
 
@@ -712,8 +710,8 @@
           <h3 class="title is-4" style="margin-top: 60px">Effectiveness of Our Auto-Evaluator</h3>
           <img src="images/auto_rater_joint.png" alt="AutoEval joint score accuracy and F1" style="max-width:55%;"/>
               <p>
-                <b>Auto-rater evaluation on joint score judgments. </b> We present the joint accuracy and F1 score between the pre-
-                dicted scores and ground-truth scores (0-1) for our VideoPhy2-autoeval and VideoCon-Physics.
+                <b>Auto-rater evaluation on joint score judgments. </b> We present the joint accuracy and F1 score between the
+                predicted scores and ground-truth scores (0-1) for our VideoPhy-2-AutoEval and VideoCon-Physics.
               </p>
         </div>
 
@@ -722,7 +720,7 @@
           <h3 class="title is-4" style="margin-top: 60px">Effectiveness of Our Auto-Evaluator</h3>
           <img src="images/auto_rater_rule.png" alt="AutoEval physical rule classification accuracy" style="max-width:55%;"/>
               <p>
-                <b>Auto-rater evaluation on physical rule classification.</b>We present the accuracy results for VideoPhy2-autoeval and
+                <b>Auto-rater evaluation on physical rule classification.</b>We present the accuracy results for VideoPhy-2-AutoEval and
                 other video-language models on the rule classification tasks.
               </p>
         </div>
@@ -782,7 +780,7 @@
           </p>
           <p>
             This means you are free to borrow the <a
-              href="https://github.com/Hritikbansal/videophy/tree/main/VIDEOPHY2">source code</a> of this website,
+              href="https://github.com/Hritikbansal/videophy/tree/main/VIDEOPHY2">source code</a> of this website;
             we just ask that you link back to this page in the footer.
             Please remember to remove the analytics code included in the header of the website which
             you do not want on your website.
